@@ -15,26 +15,31 @@ const menuItems = [
     icon: home,
     alt: 'Home',
     label: 'Overview',
+    path: '',
   },
   {
     icon: trans,
     alt: 'Transaction',
     label: 'Transaction',
+    path: 'transaction-page',
   },
   {
     icon: budg,
     alt: 'Budget',
     label: 'Budget',
+    path: 'budget-page',
   },
   {
     icon: pots,
     alt: 'Pot',
     label: 'Pot',
+    path: 'pots-page',
   },
   {
     icon: recur,
     alt: 'Recurring Bills',
     label: 'Recurring Bills',
+    path: 'recurringBills-page',
   },
 ];
 
@@ -103,11 +108,19 @@ function Header({ children }: HeaderProps) {
 }
 //                                                            SIDEBAR COMPONENT
 
-export function Aside({ isMobile }: { isMobile?: boolean }) {
-  const [minimized, setMinimized] = useState(false);
+export function Aside({
+  isMobile,
+  minimized,
+  setMinimized,
+}: {
+  isMobile?: boolean;
+  minimized?: boolean;
+  setMinimized?: (value: boolean) => void;
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleClick = () => {
-    setMinimized(!minimized);
+    setMinimized?.(!minimized);
   };
 
   return (
@@ -117,10 +130,11 @@ export function Aside({ isMobile }: { isMobile?: boolean }) {
         <ul className="list p-0">
           {menuItems.map((item, index) => {
             return (
-              <Link to={index === 1 ? '/dashboard/transaction-page' : ''}>
+              <Link to={`/dashboard/${item.path}`}>
                 <li
-                  className={`item ${index === 0 ? 'active' : ''}`}
-                  key={index}>
+                  key={index}
+                  className={`item ${activeIndex === index ? 'active' : ''}`}
+                  onClick={() => setActiveIndex(index)}>
                   <img
                     src={item.icon}
                     alt={item.alt}
@@ -144,7 +158,7 @@ export function Aside({ isMobile }: { isMobile?: boolean }) {
         <div className="bottom-item">
           <ul className="liste p-0">
             <li className="item" onClick={() => handleClick()}>
-              {minimized ? <FaArrowCircleLeft /> : <FaArrowCircleRight />}
+              {minimized ? <FaArrowCircleRight /> : <FaArrowCircleLeft />}
               <label className="sidebar-list-text">
                 {minimized ? '' : 'minimize'}
               </label>
@@ -418,20 +432,8 @@ function Main() {
 //                                                                APP COMPONENT
 
 export default function Home() {
-  //   const width = useWindowWidth();
-  //   const isMobile = width < 1000;
-  //   useEffect(() => {
-  //     const sidebar = document.querySelector('.sidebar');
-  //     const mainBar = document.querySelector('.main-bar') as HTMLElement | null;
-  //     if (isMobile && sidebar && mainBar) {
-  //       const height = sidebar.getBoundingClientRect().height;
-  //       mainBar.style.marginBottom = `${height}px`;
-  //     }
-  //   }, [isMobile]);
-
   return (
     <div>
-      {/* <Aside isMobile={isMobile} /> */}
       <Main />
     </div>
   );

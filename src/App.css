@@ -102,6 +102,9 @@ html {
   background-color: var(--secondary-color);
   overflow-y: auto;
   margin-left: 250px;
+  transition: margin-left 0.5s ease-in-out;
+}
+.minimized {
 }
 .main-bar {
   /* overflow-y: auto; */
@@ -115,7 +118,7 @@ html {
     grid-template-columns: 1fr;
   }
   .main-bar {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 }
 
