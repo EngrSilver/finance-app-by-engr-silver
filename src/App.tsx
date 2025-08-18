@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" />} />
+        <Route path="/" element={<Navigate replace to="/dashboard" />} />
         <Route path="/dashboard" element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="transaction-page" element={<Transaction />} />

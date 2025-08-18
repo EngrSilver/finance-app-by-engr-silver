@@ -1,0 +1,74 @@
+.head-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.custom-button {
+  background-color: #181818;
+  border: none;
+  color: white;
+  padding: 12px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 7px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #8d8d8d;
+  }
+}
+
+.budget-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  background-color: #f3f3f3;
+  margin: 30px;
+  gap: 20px;
+}
+
+.budgetContent-left {
+  background-color: #fff;
+  padding: 3px;
+}
+
+.budgetContent-right {
+  border: 2px solid green;
+  padding: 10px;
+}
+.forPiechart {
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.forPiechart-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.spendings {
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  color: rgba(10, 8, 8, 0.699);
+}
+.Spending-amountOf {
+  font-weight: 600;
+  color: #181818;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.Spending-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

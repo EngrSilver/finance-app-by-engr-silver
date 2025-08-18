@@ -321,7 +321,7 @@ function Transactions() {
 }
 //                                                            BUDGET COMPONENT
 
-function Budget() {
+export function Budget() {
   return (
     <div className="budget">
       <AllHeader heading="Budget" button="see details">
